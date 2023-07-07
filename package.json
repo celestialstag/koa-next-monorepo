@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "name": "koa-next-monorepo",
+  "version": "0.0.1",
+  "packageManager": "yarn@3.6.1",
+  "license": "GPL-3.0",
+  "author": "Elias Mawa <elias@mawa.dev>",
+  "homepage": "https://github.com/celestialstag/koa-next-monorepo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celestialstag/koa-next-monorepo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/celestialstag/koa-next-monorepo/issues"
+  },
+  "engines": {
+    "node": ">=18.16.1 <19.0.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "lib/*"
+  ],
+  "scripts": {
+    "lint": "",
+    "lint:libs": "",
+    "lint:api": "",
+    "test:lib": "",
+    "test:libs": "",
+    "test:api": "",
+    "watch:libs": "",
+    "serve:api": "yarn workspace @package/api run serve",
+    "rollup:libs": "yarn workspaces foreach -ti --from '@lib/*' run rollup",
+    "build": "yarn build:libs && yarn build:api",
+    "build:libs": "yarn workspaces foreach -pti --from '@lib/*' run build",
+    "build:api": "yarn workspace @package/api run build",
+    "start:api": "yarn workspace @package/api run start"
+  },
+  "dependencies": {
+    "dotenv": "~16.0.3",
+    "dotenv-expand": "~10.0.0",
+    "prettier": "~3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "~18.16.1",
+    "@typescript-eslint/eslint-plugin": "~5.58.0",
+    "@typescript-eslint/parser": "~5.58.0",
+    "eslint": "~8.31.0",
+    "eslint-config-prettier": "~8.6.0",
+    "eslint-plugin-prettier": "~4.2.1",
+    "jest": "~29.3.1",
+    "ts-node": "~10.9.1",
+    "typescript": "~5.1.6"
+  }
+}

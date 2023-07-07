@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "@lib/koa-app",
+  "version": "0.0.1",
+  "author": "Elias Mawa <elias@mawa.dev>",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "lint": "echo 'lint @lib/koa-app' && eslint . --ext .ts",
+    "prettier": "yarn prettier --write",
+    "clean": "",
+    "rollup": "echo 'bundle @lib/koa-app' && rollup -c --bundleConfigAsCjs",
+    "rollup:watch": "nodemon --watch 'src/' --delay 2000ms -e ts --exec yarn rollup",
+    "build": "NODE_ENV=production yarn build:cjs",
+    "build:cjs": "echo 'build @lib/koa-app:cjs' && tsc",
+    "build:watch": "nodemon --watch 'src/' -e ts --exec yarn build",
+    "test": "NODE_ENV=production jest"
+  },
+  "dependencies": {
+    "formidable": "~2.0.1",
+    "koa": "~2.14.2",
+    "yup": "~1.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "~15.0.1",
+    "@rollup/plugin-terser": "~0.4.1",
+    "@rollup/plugin-typescript": "~10.0.1",
+    "@types/koa": "~2.13.4",
+    "rollup": "~3.10.0",
+    "rollup-plugin-dts": "~5.3.0",
+    "ts-node": "~10.9.1",
+    "typescript": "~5.1.6"
+  }
+}
