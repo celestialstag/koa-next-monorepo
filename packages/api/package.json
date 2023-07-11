@@ -17,7 +17,7 @@
     "clean": "",
     "build": "NODE_ENV=production yarn build:cjs",
     "build:cjs": "echo 'building @package/api:cjs' && NODE_ENV=production yarn tsc",
-    "watch": "nodemon --watch './src' --watch '../../lib' --ignore '*.d.ts' -e ts,tsx,js --delay 400ms --exec yarn serve",
+    "watch": "nodemon --watch './src' --watch '../../lib' -e ts,.d.ts,js --delay 400ms --exec yarn serve",
     "serve": "echo 'serve @package/api' && ts-node ./src/server.ts",
     "start": "echo 'start @package/api' && NODE_ENV=production node ./dist/cjs/server.js",
     "test": "NODE_ENV=production jest"

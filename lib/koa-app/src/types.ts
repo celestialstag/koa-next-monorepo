@@ -1,6 +1,6 @@
-import type { Next } from "koa";
+import type { Next, ParameterizedContext } from "koa";
 
-import { AppContext } from "../app";
+export type AppContext = ParameterizedContext;
 
 export type BaseMiddleware = (ctx: AppContext, next: Next) => Promise<unknown>;
 

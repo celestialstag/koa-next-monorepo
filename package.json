@@ -27,10 +27,11 @@
     "test:libs": "yarn workspaces foreach -pti --from '@lib/*' run test",
     "test:api": "yarn workspace @package/api run test",
     "build": "yarn rollup:libs && yarn build:api",
-    "build:libs": "yarn workspaces foreach -ti --from '@lib/*' run build",
+    "build:libs": "yarn workspaces foreach -ti --from '@lib/*' run rollup",
     "build:api": "yarn workspace @package/api run build",
     "rollup:libs": "yarn workspaces foreach -ti --from '@lib/*' run rollup",
     "rollup:watch": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' run rollup:watch",
+    "watch:libs": "yarn workspaces foreach -j unlimited -pi --from '@lib/*' run rollup:watch",
     "watch:api": "yarn workspace @package/api run watch",
     "serve:api": "yarn workspace @package/api run serve",
     "start:api": "yarn workspace @package/api run start"
@@ -48,7 +49,7 @@
     "eslint-plugin-prettier": "~4.2.1",
     "jest": "~29.3.1",
     "nodemon": "~2.0.22",
-    "prettier": "~3.0.0",
+    "prettier": "~2.8.8",
     "ts-node": "~10.9.1",
     "typescript": "~5.1.6"
   }

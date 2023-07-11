@@ -3,12 +3,12 @@ import { ParameterizedContext } from "koa";
 
 import { SUCCESS } from "@lib/utility";
 
-export const route = ["/ping"];
+export const route = ["/health"];
 export const router = new KoaRouter();
 
-export const PingController = { router, route };
+export const HealthController = { router, route };
 
 router.get("/", async (ctx: ParameterizedContext) => {
-  ctx.response.body = "pong!";
+  ctx.response.body = SUCCESS.OK.message;
   ctx.response.status = SUCCESS.OK.status;
-}); // {get} /v1/ping
+}); // {get} /v1/health

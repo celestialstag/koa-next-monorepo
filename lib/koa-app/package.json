@@ -11,7 +11,7 @@
     "prettier": "yarn prettier --write",
     "clean": "",
     "rollup": "echo 'bundle @lib/koa-app' && rollup -c --bundleConfigAsCjs",
-    "rollup:watch": "nodemon --watch 'src/' --delay 2000ms -e ts --exec yarn rollup",
+    "rollup:watch": "nodemon --watch 'src/' --delay 200ms -e ts --exec yarn rollup",
     "build": "NODE_ENV=production yarn build:cjs",
     "build:cjs": "echo 'build @lib/koa-app:cjs' && tsc",
     "build:watch": "nodemon --watch 'src/' -e ts --exec yarn build",

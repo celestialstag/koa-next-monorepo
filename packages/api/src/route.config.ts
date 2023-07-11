@@ -21,16 +21,21 @@ export const load_routes = async (app: KoaApp) => {
         const { route, router }: { route: string; router: KoaRouter } =
           await import(`${__dirname}/controller/${version}/${module}`);
         version_router.use(route, router.routes());
-        if (api_config.print_errors)
+        if (api_config.print_errors) {
           // eslint-disable-next-line no-console
           console.log(`[success] ${version}/${module}`);
+        }
       }
       app.registerController(`/api/${version}`, version_router);
     } catch (e) {
-      // eslint-disable-next-line no-console
-      if (api_config.print_errors) console.log(e);
-      // eslint-disable-next-line no-console
-      if (api_config.print_errors) console.log(`[fail] ${version}/${module}`);
+      if (api_config.print_errors) {
+        // eslint-disable-next-line no-console
+        console.log(e);
+      }
+      if (api_config.print_errors) {
+        // eslint-disable-next-line no-console
+        console.log(`[fail] ${version}/${module}`);
+      }
     }
   }
 };

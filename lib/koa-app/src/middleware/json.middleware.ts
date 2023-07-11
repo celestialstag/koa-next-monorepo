@@ -1,9 +1,7 @@
 import KoaJSON from "koa-json";
-
 import type { Next } from "koa";
 
-import { AppContext } from "../app";
-import { BaseMiddlewareConstructor } from "./base.middleware";
+import type { AppContext, BaseMiddlewareConstructor } from "../types";
 
 type JsonMiddlewareOptions = {
   pretty: boolean;
@@ -13,8 +11,9 @@ type JsonMiddlewareOptions = {
 
 export const JsonMiddleware: BaseMiddlewareConstructor<
   JsonMiddlewareOptions
-> = (options = { pretty: false, param: "pretty" }) => {
+> = (options = {}) => {
+  const { pretty = false, param = "pretty" } = options;
   return async (ctx: AppContext, next: Next) => {
-    await KoaJSON({ pretty: false, param: "pretty", ...options })(ctx, next);
+    return await KoaJSON({ ...options, pretty, param })(ctx, next);
   };
 };

@@ -9,7 +9,7 @@
 
     /* build options */
     "noEmit": false,
-    "outDir": "./dist/cjs"
+    "outDir": "./dist"
   },
   "include": [
     "./src/**/*.ts",

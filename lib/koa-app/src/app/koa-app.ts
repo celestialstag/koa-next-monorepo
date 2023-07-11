@@ -1,10 +1,16 @@
-import Koa, { ParameterizedContext } from "koa";
+import Koa from "koa";
 import KoaRouter from "koa-router";
 
-import { BaseMiddleware } from "../middleware/base.middleware";
-import { KoaAppOptions } from "./base-app";
+import { SERVER_ERROR } from "@lib/utility";
 
-export type AppContext = ParameterizedContext;
+import type { BaseMiddleware } from "../types";
+
+export type KoaAppOptions = {
+  is_production: boolean;
+  name: string;
+  port: string | number;
+  host: string;
+};
 
 export class KoaApp {
   public readonly base_server = new Koa();
@@ -36,6 +42,19 @@ export class KoaApp {
   }
 
   start() {
+    this.base_server.use(this.base_router.routes());
+    this.base_server.use(async (ctx, next) => {
+      // eslint-disable-next-line no-console
+      // console.log(ctx.router);
+      await next();
+      // eslint-disable-next-line no-console
+      // console.log(ctx.router);
+      if (ctx.router.matched) return;
+      ctx.throw(
+        SERVER_ERROR.NOT_IMPLEMENTED.status,
+        SERVER_ERROR.NOT_IMPLEMENTED.message,
+      );
+    });
     this.base_server.listen(this.port, () => {
       const dev_url = `http://${this.host}:${this.port}`;
       const prod_url = `https://${this.host}`;

@@ -1,4 +1,4 @@
-import { KoaApp } from "@lib/koa-app";
+import { CorsMiddleware, KoaApp, LoggerMiddleware } from "@lib/koa-app";
 import { api_config } from "@lib/config";
 
 import { load_routes } from "./route.config";
@@ -9,6 +9,14 @@ const app = new KoaApp({
   port: api_config.api_port,
   host: api_config.api_host,
 });
+
+app.registerMiddleware(LoggerMiddleware());
+
+app.registerMiddleware(
+  CorsMiddleware({
+    origin: "localhost",
+  }),
+);
 
 load_routes(app).then(() => {
   app.start();
