@@ -1,8 +1,11 @@
 ## Node
 /**/node_modules/
 
-## Rollup
+## Developer Tooling
 .rollup.cache/
+.eslintrc.cjs
+.eslintrc.js
+rollup.config.js
 
 ## Build/Test
 /**/dist/

@@ -18,7 +18,12 @@ module.exports = {
   ],
   rules: {
     "@typescript-eslint/no-explicit-any": "error",
-    "sort-imports": ["error"],
     "no-console": "error",
+    "sort-imports": [
+      "error",
+      {
+        allowSeparatedGroups: true,
+      },
+    ],
   },
 };
