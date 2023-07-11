@@ -1,13 +1,13 @@
 import typescript from "@rollup/plugin-typescript";
 
-const packageJson = require("./package.json");
+const pkg = require("./package.json");
 
 export default [
   {
     input: "./src/server.ts",
     output: [
       {
-        file: packageJson.main,
+        file: pkg.main,
         format: "cjs",
       },
     ],

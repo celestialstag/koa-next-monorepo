@@ -1,7 +1,15 @@
 import { KoaApp } from "@lib/koa-app";
-import { Services } from "@lib/services";
+import { api_config } from "@lib/config";
 
-// eslint-disable-next-line no-console
-console.log(`KoaApp: ${KoaApp}`);
-// eslint-disable-next-line no-console
-console.log(`Services: ${Services}`);
+import { load_routes } from "./route.config";
+
+const app = new KoaApp({
+  is_production: api_config.env === "production",
+  name: api_config.appname,
+  port: api_config.api_port,
+  host: api_config.api_host,
+});
+
+load_routes(app).then(() => {
+  app.start();
+});
