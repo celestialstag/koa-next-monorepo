@@ -23,7 +23,7 @@ export const load_routes = async (app: KoaApp) => {
         version_router.use(route, router.routes());
         if (api_config.print_errors) {
           // eslint-disable-next-line no-console
-          console.log(`[success] ${version}/${module}`);
+          console.log(`+ [controller] ${version}/${module}`);
         }
       }
       app.registerController(`/api/${version}`, version_router);

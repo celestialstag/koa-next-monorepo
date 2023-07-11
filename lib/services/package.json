@@ -18,8 +18,8 @@
     "test": "NODE_ENV=production jest"
   },
   "dependencies": {
-    "formidable": "~2.0.1",
-    "koa": "~2.14.2",
+    "@lib/schema-validator": "~0.0.1",
+    "@lib/shared": "~0.0.1",
     "yup": "~1.2.0"
   },
   "devDependencies": {
