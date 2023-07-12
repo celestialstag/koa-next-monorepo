@@ -7,9 +7,7 @@ type SessionGuardOptions = {
 };
 
 export type SessionContext = {
-  // session: SessionModel;
-  // user: Required<UserModel>;
-  // roles: BaseRole[];
+  authority: number;
 };
 
 export const SessionGuard = (
@@ -17,16 +15,18 @@ export const SessionGuard = (
   options: SessionGuardOptions = { passthrough: true },
 ) => {
   return async (ctx: ParameterizedContext<SessionContext>, next: Next) => {
-    if (!options.passthrough)
+    if (!options.passthrough) {
       return ctx.throw(
         CLIENT_ERROR.UNAUTHORIZED.status,
         CLIENT_ERROR.UNAUTHORIZED.message,
       );
+    }
 
     ctx.state = {
       ...ctx.state,
       authority: 0,
     };
+
     return await next();
   };
 };
