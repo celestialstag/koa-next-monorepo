@@ -14,7 +14,6 @@ export const validateSchema = <T = unknown>(
     });
   } catch (error: unknown) {
     if (error instanceof ValidationError) {
-      console.log(error);
       return {
         value: null,
         error: error.inner.map((e) => ({

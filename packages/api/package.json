@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@lib/koa-app": "~0.0.1",
+    "@lib/schema-validator": "~0.0.1",
     "@lib/services": "~0.0.1"
   },
   "devDependencies": {

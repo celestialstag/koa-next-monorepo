@@ -2,6 +2,6 @@
 //* shared
 //***********************************************
 
-export enum HELLO_WORLD {
-  HELLO_WORLD,
+export enum HelloWorldEnum {
+  HELLO = "WORLD",
 }

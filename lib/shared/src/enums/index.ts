@@ -1,2 +1,2 @@
-export * from "./request_log.enum";
+export * from "./deal.enum";
 export * from "./shared.enum";

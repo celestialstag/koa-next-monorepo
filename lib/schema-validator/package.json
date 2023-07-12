@@ -6,6 +6,16 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
+  "exports": {
+    "vehicle": "./dist/cjs/schema/vehicle/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "vehicle": [
+        "./dist/cjs/schema/vehicle/index.js"
+      ]
+    }
+  },
   "scripts": {
     "lint": "echo 'lint @lib/schema-validator' && eslint . --ext .ts",
     "prettier": "yarn prettier --write",

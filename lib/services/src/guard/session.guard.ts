@@ -11,8 +11,7 @@ export type SessionContext = {
 };
 
 export const SessionGuard = (
-  // TODO: Set to false
-  options: SessionGuardOptions = { passthrough: true },
+  options: SessionGuardOptions = { passthrough: false },
 ) => {
   return async (ctx: ParameterizedContext<SessionContext>, next: Next) => {
     if (!options.passthrough) {

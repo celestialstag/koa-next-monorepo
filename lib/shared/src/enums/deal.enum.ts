@@ -1,7 +1,7 @@
 //***********************************************
-//* request_log
+//* api_request_log
 //***********************************************
 
-export enum RequestLogType {
-  HELLO_WORLD,
+export enum DealTypeEnum {
+  FINANCE = "FINANCE",
 }
