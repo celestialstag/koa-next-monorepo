@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  description: "API spec for First Canadian authentication service."
+  version: 0.0.1
+  title: First Canadian Financial API Spec
+  contact:
+    email: apiteam@swagger.io
+
+tags:
+  - name: authentication
+    description: Authentication and authorization
+
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+paths:
+  /api/v0/health:
+    get:
+      description: "Check application health"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "404":
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Response"
+
+components:
+  requestBodies:
+    404NotFound:
+      content:
+        text/plain:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/Response"
+
+  schemas:
+    Response:
+      type: string
