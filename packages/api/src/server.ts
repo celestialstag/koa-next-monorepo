@@ -1,7 +1,7 @@
 import { CorsMiddleware, KoaApp, LoggerMiddleware } from "@lib/koa-app";
 import { api_config } from "@lib/config";
 
-import { load_routes } from "./route.config";
+import { configure_routes } from "./route.config";
 
 const app = new KoaApp({
   is_production: api_config.env === "production",
@@ -18,6 +18,6 @@ app.registerMiddleware(
   }),
 );
 
-load_routes(app).then(() => {
+configure_routes(app).then(() => {
   app.start();
 });

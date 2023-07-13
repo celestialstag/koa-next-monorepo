@@ -11,6 +11,12 @@
   },
   "typesVersions": {
     "*": {
+      "deal": [
+        "./dist/cjs/schema/deal/index.js"
+      ],
+      "product": [
+        "./dist/cjs/schema/product/index.js"
+      ],
       "vehicle": [
         "./dist/cjs/schema/vehicle/index.js"
       ]

@@ -41,6 +41,10 @@ export class KoaApp {
     this.base_router.use(path, router.routes());
   }
 
+  useRouter(router: KoaRouter) {
+    this.base_router.use(router.routes());
+  }
+
   start() {
     this.base_server.use(this.base_router.routes());
     this.base_server.use(async (ctx, next) => {

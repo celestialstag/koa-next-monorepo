@@ -6,7 +6,7 @@ import { productSchema } from "./product.schema";
 //* millennium-protection
 //***********************************************
 
-export const fcProtectionPriceSchema = productSchema.shape({
+export const millenniumProtectionPriceSchema = productSchema.shape({
   retail_price: string().required(),
   discount_price: string().required(),
   contact_price: string().required(),
@@ -38,4 +38,6 @@ export const millenniumProtectionSchema = productSchema.shape({
   total_premium_price: string().required(),
 });
 
-export type FcProtectionSchema = InferType<typeof millenniumProtectionSchema>;
+export type MillenniumProtectionSchema = InferType<
+  typeof millenniumProtectionSchema
+>;
