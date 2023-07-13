@@ -18,6 +18,7 @@
     "test": "NODE_ENV=production jest"
   },
   "dependencies": {
+    "@lib/rc-perl": "~0.0.1",
     "@lib/schema-validator": "~0.0.1",
     "@lib/shared": "~0.0.1",
     "@lib/utility": "~0.0.1",
