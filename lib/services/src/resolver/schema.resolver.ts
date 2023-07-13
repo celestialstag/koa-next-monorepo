@@ -22,16 +22,20 @@ export const SchemaResolver = <T = unknown>(
         abortEarly: false,
       },
     );
+
     if (error || !value) {
       ctx.status = CLIENT_ERROR.BAD_REQUEST.status;
       ctx.body = error || CLIENT_ERROR.BAD_REQUEST.message;
       return;
     }
+
     ctx.state = {
       ...ctx.state,
       body: value,
     };
+
     (ctx.request as unknown as { body: T | null }).body = value;
+
     await next();
   };
 };

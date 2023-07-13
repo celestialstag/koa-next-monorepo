@@ -18,15 +18,18 @@ export const QueryResolver = <T = unknown>(
       stripUnknown: true,
       abortEarly: false,
     });
+
     if (error || !value) {
       ctx.status = CLIENT_ERROR.BAD_REQUEST.status;
       ctx.body = error || CLIENT_ERROR.BAD_REQUEST.message;
       return;
     }
+    
     ctx.state = {
       ...ctx.state,
       query: value,
     };
+    
     await next();
   };
 };

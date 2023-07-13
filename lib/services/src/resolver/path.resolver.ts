@@ -31,6 +31,7 @@ export const PathResolver = <T = unknown>(
     };
 
     (ctx.request as unknown as { body: T | null }).body = value;
+
     await next();
   };
 };
