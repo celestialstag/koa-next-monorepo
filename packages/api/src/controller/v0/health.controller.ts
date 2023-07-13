@@ -6,7 +6,7 @@ import { SUCCESS } from "@lib/utility";
 export const route = ["/health"];
 export const router = new KoaRouter();
 
-export const HealthController = { router, route };
+export const v0HealthController = { router, route };
 
 router.get("/", async (ctx: ParameterizedContext) => {
   ctx.response.body = SUCCESS.OK.message;

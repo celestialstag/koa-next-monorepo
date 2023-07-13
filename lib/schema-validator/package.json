@@ -7,18 +7,27 @@
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
   "exports": {
-    "vehicle": "./dist/cjs/schema/vehicle/index.js"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./deal": "./dist/cjs/index.js",
+    "./product": "./dist/cjs/index.js",
+    "./vehicle": "./dist/cjs/index.js"
   },
   "typesVersions": {
     "*": {
+      "main": [
+        "./dist/cjs/index.d.ts"
+      ],
       "deal": [
-        "./dist/cjs/schema/deal/index.js"
+        "./dist/cjs/schema/deal/index.d.ts"
       ],
       "product": [
-        "./dist/cjs/schema/product/index.js"
+        "./dist/cjs/schema/product/index.d.ts"
       ],
       "vehicle": [
-        "./dist/cjs/schema/vehicle/index.js"
+        "./dist/cjs/schema/vehicle/index.d.ts"
       ]
     }
   },
@@ -36,6 +45,7 @@
   "dependencies": {
     "@lib/config": "~0.0.1",
     "@lib/shared": "~0.0.1",
+    "@sodaru/yup-to-json-schema": "~2.0.1",
     "date-fns": "~2.28.0",
     "date-fns-tz": "~2.0.0",
     "form-data": "~4.0.0",

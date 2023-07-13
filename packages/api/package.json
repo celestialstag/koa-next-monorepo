@@ -29,7 +29,8 @@
   "dependencies": {
     "@lib/koa-app": "~0.0.1",
     "@lib/schema-validator": "~0.0.1",
-    "@lib/services": "~0.0.1"
+    "@lib/services": "~0.0.1",
+    "@sodaru/yup-to-json-schema": "~2.0.1"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "~15.1.0",

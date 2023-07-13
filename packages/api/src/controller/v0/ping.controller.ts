@@ -6,7 +6,7 @@ import { SUCCESS } from "@lib/utility";
 export const route = ["/ping"];
 export const router = new KoaRouter();
 
-export const PingController = { router, route };
+export const v0PingController = { router, route };
 
 router.get("/", async (ctx: ParameterizedContext) => {
   ctx.response.body = "pong!";

@@ -1,41 +1,44 @@
-import { InferType, string } from "yup";
+import { InferType, Schema, addMethod, number, string } from "yup";
+import { extendSchema } from "@sodaru/yup-to-json-schema";
 
 import { productSchema } from "./product.schema";
+
+extendSchema({ addMethod, Schema });
 
 //***********************************************
 //* millennium-protection
 //***********************************************
 
 export const millenniumProtectionPriceSchema = productSchema.shape({
-  retail_price: string().required(),
-  discount_price: string().required(),
-  contact_price: string().required(),
+  retail_price: number().required(),
+  discount_price: number().required(),
+  contact_price: number().required(),
   /** @name GprFee */
-  gpr_price: string().required(),
+  gpr_price: number().required(),
   /** @name GprGst */
-  gpr_tax_gst_price: string().required(),
+  gpr_tax_gst_price: number().required(),
   /** @name GprGst */
-  gpr_tax_pst_price: string().required(),
+  gpr_tax_pst_price: number().required(),
   /** @name Gst */
-  tax_gst_price: string().required(),
+  tax_gst_price: number().required(),
   /** @name Pst */
-  tax_pst_price: string().required(),
+  tax_pst_price: number().required(),
   /** @name TotalAmount */
-  grand_total: string().required(),
+  grand_total: number().required(),
 });
 
 export const millenniumProtectionSchema = productSchema.shape({
   plan_type: string().required(),
   /** @name Price */
-  total_price: string().required(),
+  total_price: number().required(),
   /** @name Premium */
-  premium_price: string().required(),
+  premium_price: number().required(),
   /** @name Gst */
-  gst_price: string().required(),
+  gst_price: number().required(),
   /** @name Pst */
-  pst_price: string().required(),
+  pst_price: number().required(),
   /** @name TotalPremium */
-  total_premium_price: string().required(),
+  total_premium_price: number().required(),
 });
 
 export type MillenniumProtectionSchema = InferType<

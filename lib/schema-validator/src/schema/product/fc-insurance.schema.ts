@@ -1,4 +1,4 @@
-import { InferType, array, string } from "yup";
+import { InferType, array, number, string } from "yup";
 
 import { productSchema } from "./product.schema";
 
@@ -8,17 +8,17 @@ import { productSchema } from "./product.schema";
 
 export const fcInsuranceCoveragePriceSchema = productSchema.shape({
   /** @name Premium */
-  premium_price: string().required(),
+  premium_price: number().min(0).required(),
   /** @name Pst */
-  pst_price: string().required(),
+  pst_price: number().min(0).required(),
   /** @name PolicyFee */
-  policy_fee_price: string().required(),
+  policy_fee_price: number().min(0).required(),
   /** @name InsuredResidual */
-  insured_residual_price: string().required(),
+  insured_residual_price: number().min(0).required(),
   /** @name CreditLife */
-  credit_life_price: string().required(),
+  credit_life_price: number().min(0).required(),
   /** @name LevelLife */
-  level_life_price: string().required(),
+  level_life_price: number().min(0).required(),
 });
 
 export const fcInsuranceCoverageSchema = productSchema.shape({
@@ -32,15 +32,15 @@ export const fcInsuranceCoverageSchema = productSchema.shape({
 
 export const fcInsurancePriceSchema = productSchema.shape({
   /** @name TotalPremium */
-  premium_price: string().required(),
+  premium_price: number().required(),
   /** @name TotalGst */
-  tax_gst_price: string().required(),
+  tax_gst_price: number().required(),
   /** @name TotalPst */
-  tax_pst_price: string().required(),
+  tax_pst_price: number().required(),
   /** @name PaymentAmount */
-  payment_price: string().required(),
+  payment_price: number().required(),
   /** @name FinanceAmount */
-  grand_total: string().required(),
+  grand_total: number().required(),
 });
 
 export const fcInsuranceSchema = productSchema.shape({
