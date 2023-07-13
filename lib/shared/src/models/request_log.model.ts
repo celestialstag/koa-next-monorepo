@@ -2,12 +2,12 @@
 //* request_log
 //***********************************************
 
-import { ApiRequestLogType } from "../enums";
+import { ApiRequestLogEnum } from "../enums/logging";
 
 export type BaseRequestLog = {
   id: number;
   // request_type: string;
-  request_type: ApiRequestLogType;
+  request_type: ApiRequestLogEnum;
   request_user: string;
   request_data: string;
 };

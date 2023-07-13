@@ -5,6 +5,7 @@
 
 ## Rollup
 .rollup.cache/
+rollup.config-*
 
 ## Node
 /**/node_modules/
@@ -14,7 +15,8 @@
 coverage/
 
 ## Other
-/.vscode/
+/.vscode/*
+!/.vscode/tasks.json
 
 ## Yarn
 /.yarn/*

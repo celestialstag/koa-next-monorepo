@@ -7,7 +7,18 @@ import { productSchema } from "./product.schema";
 //***********************************************
 
 export const fcInsuranceCoveragePriceSchema = productSchema.shape({
-  insurance_type: string().required(),
+  /** @name Premium */
+  premium_price: string().required(),
+  /** @name Pst */
+  pst_price: string().required(),
+  /** @name PolicyFee */
+  policy_fee_price: string().required(),
+  /** @name InsuredResidual */
+  insured_residual_price: string().required(),
+  /** @name CreditLife */
+  credit_life_price: string().required(),
+  /** @name LevelLife */
+  level_life_price: string().required(),
 });
 
 export const fcInsuranceCoverageSchema = productSchema.shape({
