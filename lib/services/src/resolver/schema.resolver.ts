@@ -14,14 +14,10 @@ export const SchemaResolver = <T = unknown>(
   schema: ObjectSchema<yup.AnyObject>,
 ): IMiddleware<SchemaContext<T>> => {
   return async (ctx: ParameterizedContext<SchemaContext<T>>, next: Next) => {
-    const { value, error } = validateSchema<T>(
-      schema,
-      (ctx.request as unknown as { body: Record<string, unknown> }).body,
-      {
-        stripUnknown: true,
-        abortEarly: false,
-      },
-    );
+    const { value, error } = validateSchema<T>(schema, ctx.request.body, {
+      stripUnknown: true,
+      abortEarly: false,
+    });
 
     if (error || !value) {
       ctx.status = CLIENT_ERROR.BAD_REQUEST.status;
