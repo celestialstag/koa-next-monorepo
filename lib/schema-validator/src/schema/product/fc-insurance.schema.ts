@@ -1,10 +1,12 @@
-import { InferType, array, number, string } from "yup";
+import { InferType, Schema, addMethod, array, number, string } from "yup";
+import { extendSchema } from "@sodaru/yup-to-json-schema";
 
 import { productSchema } from "./product.schema";
 
 //***********************************************
 //* fc-insurance
 //***********************************************
+extendSchema({ addMethod, Schema });
 
 export const fcInsuranceCoveragePriceSchema = productSchema.shape({
   /** @name Premium */

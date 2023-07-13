@@ -3,6 +3,7 @@ import { ParameterizedContext } from "koa";
 import { convertSchema } from "@sodaru/yup-to-json-schema";
 
 import {
+  createCertificateSchema,
   fcInsuranceSchema,
   fcProtectionSchema,
   millenniumProtectionSchema,
@@ -18,17 +19,48 @@ export const v0SchemaController = { router, route };
 //* certificate
 //***********************************************
 
+router.get("/cert", async (ctx: ParameterizedContext) => {
+  ctx.response.body = convertSchema(
+    createCertificateSchema.meta({
+      jsonSchema: {
+        $id: "/cert/insurance",
+      },
+    }),
+    {},
+  );
+  ctx.response.status = SUCCESS.OK.status;
+}); // {get} /v0/schema/cert
+
 router.get("/cert/insurance", async (ctx: ParameterizedContext) => {
-  ctx.response.body = convertSchema(fcInsuranceSchema);
+  ctx.response.body = convertSchema(
+    fcInsuranceSchema.meta({
+      jsonSchema: {
+        $id: "/cert/insurance",
+      },
+    }),
+    {},
+  );
   ctx.response.status = SUCCESS.OK.status;
 }); // {get} /v0/schema/cert/insurance
 
 router.get("/cert/protection", async (ctx: ParameterizedContext) => {
-  ctx.response.body = convertSchema(fcProtectionSchema);
+  ctx.response.body = convertSchema(
+    fcProtectionSchema.meta({
+      jsonSchema: {
+        $id: "/cert/protection",
+      },
+    }),
+  );
   ctx.response.status = SUCCESS.OK.status;
-}); // {get} /v0/schema/cert/insurance
+}); // {get} /v0/schema/cert/protection
 
 router.get("/cert/millennium", async (ctx: ParameterizedContext) => {
-  ctx.response.body = convertSchema(millenniumProtectionSchema);
+  ctx.response.body = convertSchema(
+    millenniumProtectionSchema.meta({
+      jsonSchema: {
+        $id: "/cert/millennium",
+      },
+    }),
+  );
   ctx.response.status = SUCCESS.OK.status;
-}); // {get} /v0/schema/cert/insurance
+}); // {get} /v0/schema/cert/millennium

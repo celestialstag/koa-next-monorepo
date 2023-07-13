@@ -1,11 +1,11 @@
 import { InferType, Schema, addMethod, date, object, string } from "yup";
 import { extendSchema } from "@sodaru/yup-to-json-schema";
 
-extendSchema({ addMethod, Schema });
-
 //***********************************************
 //* product
 //***********************************************
+
+extendSchema({ addMethod, Schema });
 
 export const productFormSchema = object({
   form_type: string().required(),

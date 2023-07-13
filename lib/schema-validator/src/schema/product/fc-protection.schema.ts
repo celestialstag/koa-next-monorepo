@@ -1,10 +1,13 @@
-import { InferType, number, string } from "yup";
+import { InferType, Schema, addMethod, number, string } from "yup";
+import { extendSchema } from "@sodaru/yup-to-json-schema";
 
 import { productSchema } from "./product.schema";
 
 //***********************************************
 //* fc-protection
 //***********************************************
+
+extendSchema({ addMethod, Schema });
 
 export const fcProtectionPriceSchema = productSchema.shape({
   retail_price: number().required(),

@@ -3,11 +3,11 @@ import { extendSchema } from "@sodaru/yup-to-json-schema";
 
 import { productSchema } from "./product.schema";
 
-extendSchema({ addMethod, Schema });
-
 //***********************************************
 //* millennium-protection
 //***********************************************
+
+extendSchema({ addMethod, Schema });
 
 export const millenniumProtectionPriceSchema = productSchema.shape({
   retail_price: number().required(),
