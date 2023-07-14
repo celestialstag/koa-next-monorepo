@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "dotenv": "~16.0.3",
-    "dotenv-expand": "~10.0.0"
+    "dotenv-expand": "~10.0.0",
+    "odbc": "^2.4.8"
   },
   "devDependencies": {
     "@types/node": "~18.16.1",

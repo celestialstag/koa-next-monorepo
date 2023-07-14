@@ -1,8 +1,5 @@
-import { convertSchema } from "@sodaru/yup-to-json-schema";
-
 import { CorsMiddleware, KoaApp, LoggerMiddleware } from "@lib/koa-app";
 import { api_config } from "@lib/config";
-import { dealSchema } from "@lib/schema-validator/deal";
 
 import { configure_routes } from "./route.config";
 
