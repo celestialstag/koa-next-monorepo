@@ -38,7 +38,7 @@ cp .env.example .env
 yarn rollup:libs
 ```
 
-#### 2. build API
+#### 2. Build API
 
 ```bash
 yarn build:api
